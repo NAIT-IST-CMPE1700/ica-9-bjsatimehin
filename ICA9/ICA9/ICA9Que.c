@@ -41,7 +41,6 @@ void Menu()
 	printf("Press 4 to display the names and marks of all persons above a threshold marks value.\n");
 	printf("Press 5 to Exit.\n");
 	printf("Enter Selection: ");
-
 }
 
 void IdOrderElements(studentInfo* sID)
@@ -90,7 +89,7 @@ void ScoreOrderElements(studentInfo * score)
 		}
 		while (tempScore != NULL)
 		{
-			if (newScore->studentMark > tempScore->studentMark)
+			if (newScore->studentMark < tempScore->studentMark)
 			{
 				studentInfo tempI = { newScore->firstName,newScore->studentID,newScore->studentMark };
 				newScore->studentID = tempScore->studentID;
@@ -110,27 +109,48 @@ void ScoreOrderElements(studentInfo * score)
 
 void DisplayElements(studentInfo* sinfo, int sid, int sscore)
 {
+	int rank = 1;
 	studentInfo* nData = sinfo;
+
 	while (nData != NULL)
 	{
-		if (nData->studentID != sid && sid != NULL)
-		{
-			nData = nData->head;
-			continue;
-		}
+	
 		if (nData->studentMark < sscore && sscore >= 0)
 		{
 			nData = nData->head;
 			continue;
 		}
 
-		printf("Student Name: %s,", nData->firstName);
-		printf("\nStudent ID: %i, ", nData->studentID);
-		printf("Student Mark: %d, ", nData->studentMark);
-		printf("\n");
-
+			printf("Student Name: %s,", nData->firstName);
+			printf("\nStudent ID: %i, ", nData->studentID);
+			printf("Student Mark: %d, ", nData->studentMark);
+			printf("\n");
+		
 		nData = nData->head;
-
+		rank++;
 	}
+}
+void DisplayRank(studentInfo* sinfo, int sid) 
+{
+
+	int rank = 1;
+	studentInfo* nData = sinfo;
+
+	while (nData != NULL)
+	{
+		if (nData->studentID == sid)
+		{
+
+			printf("Student Name: %s,", nData->firstName);
+			printf("\nStudent Mark: %d, ", nData->studentMark);
+			printf("Student Rank is : %d", rank);
+
+			printf("\n");
+
+		}
+		nData = nData->head;
+		rank++;
+	}
+
 }
 

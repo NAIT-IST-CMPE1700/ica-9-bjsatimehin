@@ -7,11 +7,13 @@
 int main()
 {
 	int gSize = 10;
+	int userInput;
 	studentInfo* grpList = lGroup(gSize);
 	char userchoice = 'C';
 
 	while (userchoice != 5)
 	{
+
 		Menu();
 		printf("\n");
 		scanf_s("%c", &userchoice, sizeof(char));
@@ -32,12 +34,16 @@ int main()
 			break;
 
 		case'3':
-			DisplayElements(grpList, NULL, 0);
+			printf("enter student ID:");
+			scanf_s("%d", &userInput, sizeof(int));
+			DisplayRank(grpList, userInput);
 			printf("\n");
 			break;
 		case'4':
+			printf("enter threshold score:");
+			scanf_s("%d", &userInput,sizeof(int));
 
-			DisplayElements(grpList, NULL, 50);
+			DisplayElements(grpList, NULL, userInput);
 			printf("\n");
 			break;
 

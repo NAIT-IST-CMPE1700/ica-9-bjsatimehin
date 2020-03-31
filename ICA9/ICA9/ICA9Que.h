@@ -19,10 +19,9 @@ studentInfo* lGroup(int gSize);
 void IdOrderElements (studentInfo * sID);
 void ScoreOrderElements (studentInfo * score);
 void DisplayElements(studentInfo* sinfo, int sid, int sscore);
+void DisplayRank(studentInfo* sinfo, int sid);
 void Menu();
 
 static const char fName[10][15] = { "John","Ryan","Kevin","Terry","Shane","Brett","Victor","Josh","Jd","DaSilva" };
-
-
 
 #endif // !ICA9_LinkList
