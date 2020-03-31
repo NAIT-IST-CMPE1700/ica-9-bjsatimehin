@@ -48,6 +48,7 @@ int main()
 			break;
 
 		case'5':
+			exit(EXIT_FAILURE);
 			break;
 
 		default:
